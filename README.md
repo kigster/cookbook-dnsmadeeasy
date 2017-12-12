@@ -1,10 +1,15 @@
-# DnsMadeEasy
+# DnsMadeEasy Chef Cookbook
 
-This cookbook does several things:
+[![Build Status](https://travis-ci.org/kigster/dnsmadeeasy-cookbook.svg?branch=master)](https://travis-ci.org/kigster/dnsmadeeasy-cookbook)
 
- 1. it tries to determine what hostname the node should have
- 2. it sets this hostname locally on the machine (using hostname-cookbook)
- 3. it talks to DnsMadeEasy and attempts to register the new host, or delete it depending on the action.
+This cookbook is an attempt to export the functionality of the [dnsmaseeasy](/kigster/dnsmadeeasy) ruby gem as several reslurces with well defined actions.
+
+The following resources are available:
+
+- dnsmadeeasy_domain
+- dnsmadeeasy_record
+
+
 
 
 
