@@ -6,10 +6,10 @@
 source 'https://rubygems.org'
 
 group :development, :test do
+  gem 'dnsmadeeasy'
   gem 'stove'
   gem 'community_cookbook_releaser'
   gem 'rspec'
   gem 'rspec-its'
 end
-
 

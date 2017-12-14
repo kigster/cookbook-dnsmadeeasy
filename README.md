@@ -6,9 +6,11 @@ This cookbook is an attempt to export the functionality of the [dnsmaseeasy](/ki
 
 The following resources are available:
 
-- dnsmadeeasy_domain
+- dnsmadeeasy_credentials_file
 - dnsmadeeasy_record
+- dnsmadeeasy_record_A
 
+> NOTE: this cookbook is work in progress
 
 
 

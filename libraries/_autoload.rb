@@ -1,4 +1,5 @@
-DNSMADEEASY_GEM_VERSION = '= 0.2.0'.freeze
+DNSMADEEASY_GEM_VERSION ||= '= 0.2.3'.freeze
+
 begin
   gem 'dnsmadeeasy', DNSMADEEASY_GEM_VERSION
 rescue LoadError
@@ -7,8 +8,10 @@ rescue LoadError
 
     require 'chef/resource/chef_gem'
 
-     dnsmadeeasy = Chef::Resource::ChefGem.new('dnsmadeeasy', run_context)
-     dnsmadeeasy.version DNSMADEEASY_GEM_VERSION
-     dnsmadeeasy.run_action(:install)
+    dnsmadeeasy = Chef::Resource::ChefGem.new('dnsmadeeasy', run_context)
+    dnsmadeeasy.version DNSMADEEASY_GEM_VERSION
+    dnsmadeeasy.run_action(:install)
+
+    gem 'dnsmadeeasy', DNSMADEEASY_GEM_VERSION
   end
 end

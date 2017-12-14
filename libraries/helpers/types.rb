@@ -11,17 +11,12 @@ module DnsmadeeasyCookbook
         end
       end
 
-      class ShellCommandString < String
-        def ==(other)
-          other.is_a?(String) && Shellwords.shellwords(self) == Shellwords.shellwords(other)
-        end
-      end
-
       class PartialHash < Hash
         def ==(other)
           other.is_a?(Hash) && all? { |key, val| other.key?(key) && other[key] == val }
         end
       end
+
     end
   end
 end

@@ -19,7 +19,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[dnsmadeeasy::default]
+      - recipe[dnsmadeeasy_test::credentials_file]
     verifier:
       inspec_tests:
         - test/smoke/default
