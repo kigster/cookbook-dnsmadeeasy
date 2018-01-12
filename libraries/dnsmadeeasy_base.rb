@@ -1,9 +1,9 @@
+require_relative 'helpers/client'
 
 module DnsmadeeasyCookbook
   class DnsmadeeasyBase < ::Chef::Resource
     require 'dnsmadeeasy'
 
-    require_relative 'helpers/client'
     require_relative 'helpers/types'
     require_relative 'helpers/network'
 
