@@ -4,7 +4,7 @@ require 'dnsmadeeasy'
 module DnsmadeeasyCookbook
   module Helpers
     module Network
-      DNS_VALID_DOMAIN ||= %r{^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$}
+      DNS_VALID_DOMAIN ||= %r{^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]+$}
       DNS_RECORD_TYPES ||= %w(A AAAA ANAME CNAME HTTPRED MX NS PTR SOA SPF SRV TXT)
 
       # Source:

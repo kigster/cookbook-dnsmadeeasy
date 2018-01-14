@@ -10,8 +10,8 @@ module DnsmadeeasyCookbook
       end
 
       def client(dme_api_key = nil, dme_api_secret = nil)
-        key    = dme_api_key || api_key
-        secret = dme_api_secret || api_secret
+        key    = dme_api_key || available_resource.api_key
+        secret = dme_api_secret || available_resource.api_secret
         create_client(key, secret)
       end
 
@@ -19,8 +19,14 @@ module DnsmadeeasyCookbook
         ::DnsMadeEasy::Api::Client.new(key, secret)
       end
 
+      def available_resource
+        return new_resource if respond_to?(:new_resource)
+        return current_resource if respond_to?(:current_resource)
+        self
+      end
+
       def with_retries(&_block)
-        tries = self.respond_to?(:api_retries) ? self.api_retries : 1
+        tries = respond_to?(:api_retries) ? available_resource.api_retries : 1
         begin
           yield
             # Only catch errors that can be fixed with retries.

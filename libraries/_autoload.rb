@@ -1,4 +1,4 @@
-DNSMADEEASY_GEM_VERSION ||= '= 0.2.3'.freeze
+DNSMADEEASY_GEM_VERSION ||= '= 0.3.1'.freeze
 
 begin
   gem 'dnsmadeeasy', DNSMADEEASY_GEM_VERSION

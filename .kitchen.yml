@@ -14,13 +14,15 @@ verifier:
 
 platforms:
   - name: ubuntu-16.04
-  - name: centos-7
 
 suites:
   - name: default
     run_list:
-      - recipe[dnsmadeeasy_test::credentials_file]
+      - recipe[dnsmadeeasy_test::record_a]
     verifier:
       inspec_tests:
         - test/smoke/default
     attributes:
+      chef_client:
+        config:
+          log_level: info
