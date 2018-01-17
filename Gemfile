@@ -5,8 +5,10 @@
 
 source 'https://rubygems.org'
 
+gem 'dnsmadeeasy', '~> 0.3.2'
+gem 'sym', '= 2.8.2'
+
 group :development, :test do
-  gem 'dnsmadeeasy', '~> 0.3.2'
   gem 'stove'
   gem 'community_cookbook_releaser'
   gem 'rspec', '~> 3.7'

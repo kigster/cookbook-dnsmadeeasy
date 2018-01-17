@@ -10,7 +10,27 @@ The following resources are available:
 - dnsmadeeasy_record
 - dnsmadeeasy_record_A
 
-> NOTE: this cookbook is work in progress
+## Usage
+
+### `dnsmadeeasy_credentials_file`
+
+You can create a credentials file on a remote server, if you need to perform DNS operations outside of Chef.
+
+Here is how:
+
+```ruby
+dnsmadeeasy_credentials_file 'my-corp' do
+  api_key node['my_corp']['api_key']
+  api_secret node['my_corp']['api_secret']
+  encryption_key node['my_corp']['encryption_key']
+  action :create
+end
+```
+
+### `dnsmadeeasy_record_A`
+
+Use this to create, update, or delete an A record.
+
 
 
 

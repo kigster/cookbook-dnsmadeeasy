@@ -17,12 +17,13 @@ module DnsmadeeasyCookbook
     property :record_ids, ArrayType, default: [], desired_state: false
 
     load_current_value do |resource|
-      super(resource)
       begin
         with_retries do
-          existing_records = client.find_all(resource.domain,
-                                             resource.name,
-                                             resource.type)
+          existing_records = client(resource.api_key,
+                                    resource.api_secret,
+                                    resource.encryption_key).find_all(resource.domain,
+                                                                      resource.name,
+                                                                      resource.type)
           if existing_records && !existing_records.empty?
             record = existing_records.find { |r| r.name == resource.name }
             if record

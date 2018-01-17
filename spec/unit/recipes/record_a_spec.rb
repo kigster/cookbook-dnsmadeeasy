@@ -14,7 +14,9 @@ describe 'dnsmadeeasy_test::record_a' do
     let(:chef_run) { runner.converge(described_recipe) }
 
     it 'converges successfully' do
-      expect(runner.node['dnsmadeeasy']).to_not be_nil
+      expect(runner.node['dnsmadeeasy_test']['api_key']).to_not be_nil
+      expect(runner.node['dnsmadeeasy_test']['api_secret']).to_not be_nil
+      expect(runner.node['dnsmadeeasy_test']['encryption_key']).to_not be_nil
     end
   end
 end

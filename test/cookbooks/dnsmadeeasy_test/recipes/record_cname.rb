@@ -1,8 +1,10 @@
-record_name = node['dnsmadeeasy_test']['hostname']
+cname_hash = node['dnsmadeeasy_test']['cname']
+cname_name = cname_hash.values.first
+cname_host = cname_hash.keys.first
 
-dnsmadeeasy_record_A record_name do
+dnsmadeeasy_record_CNAME cname_name do
   domain node['dnsmadeeasy_test']['domain']
-  value node['ipaddress']
+  value cname_host
   api_key node['dnsmadeeasy_test']['api_key']
   api_secret node['dnsmadeeasy_test']['api_secret']
   encryption_key node['dnsmadeeasy_test']['encryption_key']
@@ -10,17 +12,17 @@ dnsmadeeasy_record_A record_name do
   action :create
 end
 
-dnsmadeeasy_record_A record_name do
+dnsmadeeasy_record_CNAME cname_name do
   domain node['dnsmadeeasy_test']['domain']
   api_key node['dnsmadeeasy_test']['api_key']
   api_secret node['dnsmadeeasy_test']['api_secret']
   encryption_key node['dnsmadeeasy_test']['encryption_key']
-  value '1.1.1.1'
+  value cname_host + '-xxx'
   ttl 120
   action :update
 end
 
-dnsmadeeasy_record_A record_name do
+dnsmadeeasy_record_CNAME cname_name do
   domain node['dnsmadeeasy_test']['domain']
   api_key node['dnsmadeeasy_test']['api_key']
   api_secret node['dnsmadeeasy_test']['api_secret']
