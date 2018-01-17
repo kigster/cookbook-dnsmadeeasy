@@ -17,6 +17,7 @@ module DnsmadeeasyCookbook
     property :record_ids, ArrayType, default: [], desired_state: false
 
     load_current_value do |resource|
+      super(resource)
       begin
         with_retries do
           existing_records = client.find_all(resource.domain,

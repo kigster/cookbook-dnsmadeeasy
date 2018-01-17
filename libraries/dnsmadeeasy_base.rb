@@ -30,5 +30,18 @@ module DnsmadeeasyCookbook
       include ::DnsmadeeasyCookbook::Helpers::Types
       include ::DnsmadeeasyCookbook::Helpers::Network
     end
+
+    load_current_value do |resource|
+      super(resource)
+      begin
+        require 'dnsmadeeasy/dme'
+        if DME.configure_from_file
+          api_key(DME.api_key)
+          api_secret(DME.api_secret)
+        end
+      rescue DnsMadeEasy::Error
+        nil
+      end
+    end
   end
 end

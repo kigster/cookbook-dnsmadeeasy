@@ -1,5 +1,5 @@
-default['dnsmadeeasy']['api_key']    = nil # set me externally
-default['dnsmadeeasy']['api_secret'] = nil # set me externally
 
-default['dnsmadeeasy']['domain']     = 'homebase.systems'
-default['dnsmadeeasy']['hostname']   = 'cookbook-app100'
+#default['dnsmadeeasy_test']['api_key']    = nil
+#default['dnsmadeeasy_test']['api_secret'] = nil
+default['dnsmadeeasy_test']['domain']     = 'homebase.systems'
+default['dnsmadeeasy_test']['hostname']   = 'cookbook-app100'

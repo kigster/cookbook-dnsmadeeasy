@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe 'dnsmadeeasy_test::record_a' do
-  cached(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  include_examples "credentials", 'spec/unit/fixtures/credentials.yml'
+
+  cached(:chef_run) do
+    runner.converge(described_recipe)
+  end
 end

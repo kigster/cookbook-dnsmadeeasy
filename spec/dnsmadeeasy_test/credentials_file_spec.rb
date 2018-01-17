@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe 'dnsmadeeasy_test::credentials_file' do
-  cached(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
+  include_examples "credentials", 'spec/unit/fixtures/credentials.yml'
+  cached(:chef_run) { runner.converge(described_recipe) }
 
   context 'testing create action' do
     it 'creates credentials file' do

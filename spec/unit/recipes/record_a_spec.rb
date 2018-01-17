@@ -8,23 +8,13 @@ require 'spec_helper'
 require 'dnsmadeeasy'
 
 describe 'dnsmadeeasy_test::record_a' do
+  include_examples "credentials", 'spec/unit/fixtures/credentials.yml'
+
   context 'When all attributes are default, on an Ubuntu 16.04' do
-
-    let(:credentials) { ::DnsMadeEasy::Credentials.keys_from_file }
-
-    let(:chef_run) do
-      pp credentials
-
-      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu',
-                                          version:  '16.04') do |node|
-        node.automatic['dnsmadeeasy']['api_key']    = credentials.api_key
-        node.automatic['dnsmadeeasy']['api_secret'] = credentials.api_secret
-      end
-      runner.converge(described_recipe)
-    end
+    let(:chef_run) { runner.converge(described_recipe) }
 
     it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
+      expect(runner.node['dnsmadeeasy']).to_not be_nil
     end
   end
 end

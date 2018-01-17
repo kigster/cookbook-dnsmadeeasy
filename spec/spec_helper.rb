@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 require 'chefspec'
 require 'chefspec/berkshelf'
+require 'rspec'
+require 'rspec/its'
 
 class RSpecHelper
   class << self
@@ -20,3 +22,6 @@ RSpec.configure do |config|
     RSpecHelper.current_example = self
   end
 end
+
+
+require_relative 'support/credentials'
