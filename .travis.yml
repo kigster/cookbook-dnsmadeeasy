@@ -6,7 +6,6 @@ addons:
     - chef-current-trusty
     packages:
     - chefdk
-install: echo "skip bundle install"
 branches:
   only:
   - master
@@ -21,6 +20,8 @@ before_script:
 - chef --version
 - cookstyle --version
 - foodcritic --version
+- bundle
+- berks
 script:
 - chef exec rspec
 matrix:

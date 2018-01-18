@@ -1,17 +1,21 @@
-DNSMADEEASY_GEM_VERSION ||= '= 0.3.2'.freeze
 
-begin
-  gem 'dnsmadeeasy', DNSMADEEASY_GEM_VERSION
-rescue LoadError
-  unless defined?(ChefSpec)
-    run_context = Chef::RunContext.new(Chef::Node.new, {}, Chef::EventDispatch::Dispatcher.new)
+def load_gem(gem_name, version)
+  begin
+    gem gem_name, version
+  rescue LoadError
+    unless defined?(ChefSpec)
+      run_context = Chef::RunContext.new(Chef::Node.new, {}, Chef::EventDispatch::Dispatcher.new)
 
-    require 'chef/resource/chef_gem'
+      require 'chef/resource/chef_gem'
 
-    dnsmadeeasy = Chef::Resource::ChefGem.new('dnsmadeeasy', run_context)
-    dnsmadeeasy.version DNSMADEEASY_GEM_VERSION
-    dnsmadeeasy.run_action(:install)
+      __gem = Chef::Resource::ChefGem.new(gem_name, run_context)
+      __gem.version version
+      __gem.run_action(:install)
 
-    gem 'dnsmadeeasy', DNSMADEEASY_GEM_VERSION
+      gem gem_name, version
+    end
   end
 end
+
+load_gem('dnsmadeeasy', '= 0.3.2')
+load_gem('sym', '= 2.8.2')

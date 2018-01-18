@@ -1,8 +1,9 @@
 require_relative 'helpers/client'
+require 'dnsmadeeasy'
+require 'sym'
 
 module DnsmadeeasyCookbook
   class DnsmadeeasyBase < ::Chef::Resource
-    require 'dnsmadeeasy'
 
     require_relative 'helpers/types'
     require_relative 'helpers/network'
@@ -13,6 +14,8 @@ module DnsmadeeasyCookbook
 
     property :api_key, [String, nil], required: true, desired_state: false
     property :api_secret, [String, nil], required: true, desired_state: false
+    property :encryption_key, [String, nil], required: true, desired_state: false
+
     property :api_retries, [Integer, nil], required: false, default: 1, desired_state: false
 
     Boolean   = property_type(
@@ -31,17 +34,5 @@ module DnsmadeeasyCookbook
       include ::DnsmadeeasyCookbook::Helpers::Network
     end
 
-    load_current_value do |resource|
-      super(resource)
-      begin
-        require 'dnsmadeeasy/dme'
-        if DME.configure_from_file
-          api_key(DME.api_key)
-          api_secret(DME.api_secret)
-        end
-      rescue DnsMadeEasy::Error
-        nil
-      end
-    end
   end
 end
