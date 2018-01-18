@@ -6,9 +6,13 @@ This cookbook is an attempt to export the functionality of the [dnsmaseeasy](/ki
 
 The following resources are available:
 
-- dnsmadeeasy_credentials_file
-- dnsmadeeasy_record
-- dnsmadeeasy_record_A
+- `dnsmadeeasy_record` — a generic record without value validation.
+- `dnsmadeeasy_record_A` — an A record that validates value to be IPv4 address.
+- `dnsmadeeasy_record_CNAME` — a CNAME record that validates value to be a valid hostname.
+
+Utility:
+
+- `dnsmadeeasy_credentials_file` — installs `~/.dnsmadeeasy/credentials.yml` file on a remote machine if necessary, optionally can use encrypted api key and secret.
 
 ## Usage
 
@@ -58,10 +62,12 @@ This resource creates/updates/deletes CNAMEs to other hosts:
 
 ```ruby
 # Let's add this server's name to the CNAME www.
+#
 # This would only work, if server's name has been added as a valid A record 
 # also.
+#
 dnsmadeeasy_record_CNAME www do
-  domain 'awesomne-corp.com'
+  domain 'awesome-corp.com'
   value node['name']
   api_key @api_key
   api_secret @api_secret
