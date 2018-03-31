@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kigster/dnsmadeeasy-cookbook.svg?branch=master)](https://travis-ci.org/kigster/dnsmadeeasy-cookbook)
 
-This cookbook is an attempt to export the functionality of the [dnsmaseeasy](/kigster/dnsmadeeasy) ruby gem as several reslurces with well defined actions.
+This cookbook is an attempt to export the functionality of the [dnsmaseeasy](/kigster/dnsmadeeasy) ruby gem as CHEF resources with well defined actions. The cookbook automatically detects an existing record with the same attributes, and skips over.
 
 The following resources are available:
 
