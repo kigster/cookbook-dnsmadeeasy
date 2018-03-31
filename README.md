@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kigster/dnsmadeeasy-cookbook.svg?branch=master)](https://travis-ci.org/kigster/dnsmadeeasy-cookbook)
 
-This cookbook is an attempt to export the functionality of the [dnsmaseeasy](/kigster/dnsmadeeasy) ruby gem as CHEF resources with well defined actions. The cookbook automatically detects an existing record with the same attributes, and skips over.
+This cookbook builds atop of the [dnsmaseeasy](/kigster/dnsmadeeasy) ruby gem, and offers DNS rcord management through several CHEF resources with well defined actions. The cookbook automatically detects an existing record with the same attributes, and skips over.
 
 The following resources are available:
 
@@ -10,7 +10,14 @@ The following resources are available:
 - `dnsmadeeasy_record_A` — an A record that validates value to be IPv4 address.
 - `dnsmadeeasy_record_CNAME` — a CNAME record that validates value to be a valid hostname.
 
-Utility:
+The f9llowing actions are available:
+
+* create
+* update 
+* delete 
+
+
+Utility resource:
 
 - `dnsmadeeasy_credentials_file` — installs `~/.dnsmadeeasy/credentials.yml` file on a remote machine if necessary, optionally can use encrypted api key and secret.
 
