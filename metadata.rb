@@ -8,7 +8,7 @@ long_description <<~EOF
   using the Dnsmadeeasy provider, using the ruby gem "dnsmadeeasy" behind the 
   scenes.
 EOF
-version '0.1.1'
+version '0.1.2'
 
 chef_version '>= 12.5' if respond_to?(:chef_version)
 
