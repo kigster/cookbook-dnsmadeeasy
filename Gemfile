@@ -6,7 +6,7 @@
 source 'https://rubygems.org'
 
 gem 'dnsmadeeasy', '~> 0.3.2'
-gem 'sym', '= 2.8.2'
+gem 'sym', '~> 2'
 
 group :development, :test do
   gem 'stove'

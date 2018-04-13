@@ -14,7 +14,7 @@ module DnsmadeeasyCookbook
 
     property :api_key, [String, nil], required: true, desired_state: false
     property :api_secret, [String, nil], required: true, desired_state: false
-    property :encryption_key, [String, nil], required: true, desired_state: false
+    property :encryption_key, [String, nil], required: false, desired_state: false
 
     property :api_retries, [Integer, nil], required: false, default: 1, desired_state: false
 
