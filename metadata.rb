@@ -3,6 +3,26 @@ maintainer 'Konstantin Gredeskoul'
 maintainer_email 'kigster@gmail.com'
 license 'MIT'
 description 'A collection of Chef Resources to manage DNS records using DnsMadeEasy via their REST API'
+
+version '0.2.1'
+
+chef_version '>= 12.5' if respond_to?(:chef_version)
+
+source_url 'https://github.com/kigster/dnsmadeeasy-cookbook'
+issues_url 'https://github.com/kigster/dnsmadeeasy-cookbook/issues'
+
+gem 'dnsmadeeasy', '~> 0.3.2'
+gem 'sym', '~> 2.8.5'
+
+supports 'amazon'
+supports 'centos'
+supports 'scientific'
+supports 'oracle'
+supports 'debian'
+supports 'fedora'
+supports 'redhat'
+supports 'ubuntu'
+
 long_description <<~EOF
 = DESCRIPTION:
 
@@ -34,20 +54,3 @@ Creating a new A record (skips over, if already created):
  end
 ```
 EOF
-version '0.2.0'
-
-chef_version '>= 12.5' if respond_to?(:chef_version)
-
-source_url 'https://github.com/kigster/dnsmadeeasy-cookbook'
-issues_url 'https://github.com/kigster/dnsmadeeasy-cookbook/issues'
-
-gem 'dnsmadeeasy', '~> 0.3.2'
-
-supports 'amazon'
-supports 'centos'
-supports 'scientific'
-supports 'oracle'
-supports 'debian'
-supports 'fedora'
-supports 'redhat'
-supports 'ubuntu'

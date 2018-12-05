@@ -17,5 +17,6 @@ def load_gem(gem_name, version)
   end
 end
 
+
 load_gem('dnsmadeeasy', '= 0.3.2')
-load_gem('sym', '= 2.8.4')
+load_gem('sym', '= 2.8.5')
